@@ -3,7 +3,7 @@ export default async function handler(req, res) {
   const CLIENT_SECRET = process.env.MC_CLIENT_SECRET;
   const AUTH_URL = "https://mcj90l2mmyz5mnccv2qp30ywn8r0.auth.marketingcloudapis.com/v2/token";
   const REST_URL = "https://mcj90l2mmyz5mnccv2qp30ywn8r0.rest.marketingcloudapis.com";
-  const DE_NAME = "Encuesta_Feedback";
+  const DE_NAME = "709E1D62-BDA9-4706-ABBD-133C113727B5";
 
   try {
     // 1. Obtener token
