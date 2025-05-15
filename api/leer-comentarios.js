@@ -1,4 +1,4 @@
-import { parse } from "fast-xml-parser";
+import parser from "fast-xml-parser";
 
 export default async function handler(req, res) {
   const CLIENT_ID = process.env.MC_CLIENT_ID || "8w7vukn7qtlgn6siav8pg002";
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     });
 
     const xml = await soapRes.text();
-    const parsed = parse(xml, { ignoreAttributes: false });
+    const parsed = parser.parse(xml, { ignoreAttributes: false });
 
     const results = parsed["soap:Envelope"]["soap:Body"]["RetrieveResponseMsg"]["Results"];
     if (!results) return res.status(200).json([]);
