@@ -2,7 +2,11 @@
   "name": "leer-comentarios-sfmc",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "start": "node api/leer-comentarios.js"
+  },
   "dependencies": {
     "fast-xml-parser": "^4.2.5"
   }
 }
+
