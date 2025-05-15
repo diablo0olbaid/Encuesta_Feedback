@@ -101,13 +101,12 @@ export default async function handler(req, res) {
           <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">
             <RetrieveRequest>
               <ObjectType>DataExtensionObject[${deName}]</ObjectType>
-              <Properties>Email</Properties>
-              <Properties>Comentario</Properties>
-              <Properties>Motivo</Properties>
-              <Properties>FechaForm_Arg</Properties>
-              <Properties>CustomerKey</Properties>
-              <Properties>CustomerObjectID</Properties>
-              <Properties>ObjectID</Properties>
+              <Properties>email</Properties>
+              <Properties>comentario</Properties>
+              <Properties>motivo</Properties>
+              <Properties>fechaform</Properties>
+              <Properties>fechaform_arg</Properties>
+              <Properties>acepto terminos y condiciones</Properties>
             </RetrieveRequest>
           </RetrieveRequestMsg>
         </soapenv:Body>
