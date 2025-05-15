@@ -53,7 +53,9 @@ export default async function handler(req, res) {
     });
 
     const xml = await soapRes.text();
+    console.log("SOAP RESPONSE:\n", xml); // 👈 esto lo loguea en Vercel
     const parsed = parser.parse(xml, { ignoreAttributes: false });
+
 
     const results = parsed["soap:Envelope"]["soap:Body"]["RetrieveResponseMsg"]["Results"];
     if (!results) return res.status(200).json([]);
@@ -73,6 +75,6 @@ export default async function handler(req, res) {
     return res.status(200).json(normalizados);
   } catch (err) {
     console.error("ERROR:", err);
-    return res.status(500).json({ error: "Error al leer registros de SFMC" });
+    return res.status(500).json({   error: "Error al leer registros de SFMC",   message: err.message,   stack: err.stack });
   }
 }
