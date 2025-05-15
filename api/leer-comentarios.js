@@ -29,24 +29,25 @@ export default async function handler(req, res) {
     const { access_token } = tokenData;
 
     // 2. Armar envelope SOAP
-    const envelope = `<?xml version="1.0" encoding="UTF-8"?>
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <soapenv:Header>
-        <fueloauth>${access_token}</fueloauth>
-      </soapenv:Header>
-      <soapenv:Body>
-        <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">
-          <RetrieveRequest>
-            <ObjectType>DataExtensionObject[${DE_NAME}]</ObjectType>
-            <Properties>Email</Properties>
-            <Properties>Comentario</Properties>
-            <Properties>Fecha</Properties>
-          </RetrieveRequest>
-        </RetrieveRequestMsg>
-      </soapenv:Body>
-    </soapenv:Envelope>`;
+   const envelope = `<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soapenv:Header>
+    <fueloauth>${access_token}</fueloauth>
+  </soapenv:Header>
+  <soapenv:Body>
+    <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">
+      <RetrieveRequest>
+        <ObjectType>DataExtensionObject[${DE_NAME}]</ObjectType>
+        <Properties>Email</Properties>
+        <Properties>Comentario</Properties>
+        <Properties>Motivo</Properties>
+        <Properties>FechaForm_Arg</Properties>
+      </RetrieveRequest>
+    </RetrieveRequestMsg>
+  </soapenv:Body>
+</soapenv:Envelope>`;
 
     // 3. Enviar solicitud SOAP
     const soapRes = await fetch(SOAP_URL, {
