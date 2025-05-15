@@ -105,6 +105,9 @@ export default async function handler(req, res) {
               <Properties>Comentario</Properties>
               <Properties>Motivo</Properties>
               <Properties>FechaForm_Arg</Properties>
+              <Properties>CustomerKey</Properties>
+              <Properties>CustomerObjectID</Properties>
+              <Properties>ObjectID</Properties>
             </RetrieveRequest>
           </RetrieveRequestMsg>
         </soapenv:Body>
